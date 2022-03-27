@@ -14,8 +14,8 @@ interface(`userdom_manage_documents_home',`
     gen_require(`
         type documents_home_t;
     ')
-    hardhat_userdom_user_home_dir_filetrans($1, documents_home_t, dir, "Documents")
-    hardhat_manage_dirs_pattern($1, documents_home_t, documents_home_t)
-    hardhat_manage_files_pattern($1, documents_home_t, documents_home_t)
-    hardhat_manage_lnk_files_pattern($1, documents_home_t, documents_home_t)
+    hos_userdom_user_home_dir_filetrans($1, documents_home_t, dir, "Documents")
+    hos_manage_dirs_pattern($1, documents_home_t, documents_home_t)
+    hos_manage_files_pattern($1, documents_home_t, documents_home_t)
+    hos_manage_lnk_files_pattern($1, documents_home_t, documents_home_t)
 ')

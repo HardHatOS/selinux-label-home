@@ -6,5 +6,5 @@ gen_require(`
 type documents_home_t;
 userdom_user_home_content(documents_home_t)
 ubac_constrained(documents_home_t)
-hardhat_userdom_user_home_dir_filetrans(userdom_filetrans_type, documents_home_t, dir, "Documents")
+hos_userdom_user_home_dir_filetrans(userdom_filetrans_type, documents_home_t, dir, "Documents")
 ########################################
