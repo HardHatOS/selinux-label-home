@@ -1,0 +1,10 @@
+policy_module(pictures_home, 1.0.0)
+########################################
+gen_require(`
+    attribute userdom_filetrans_type;
+')
+type pictures_home_t;
+userdom_user_home_content(pictures_home_t)
+ubac_constrained(pictures_home_t)
+hos_userdom_user_home_dir_filetrans(userdom_filetrans_type, pictures_home_t, dir, "Pictures")
+########################################
