@@ -1,16 +1,16 @@
 BuildArch: noarch
 BuildRequires: hos-devel-selinux-interfaces, make, selinux-policy-devel
 License: AGPLv3+
-Name: hos-devel-selinux-label-MODULE
+Name: hos-devel-selinux-label-desktop_home
 Release: 1%{?dist}
 Requires: policycoreutils, libselinux-utils
-Source0: MODULE.if
-Summary: SELinux access interfaces for the TARGET directory
-URL: https://github.com/HardHatOS/selinux-app-MODULE
+Source0: desktop_home.if
+Summary: SELinux access interfaces for the Desktop directory
+URL: https://github.com/HardHatOS/selinux-label-home/desktop_home
 Version: 1.0
 
 %description
-SELinux access interfaces for the $HOME/TARGET directory
+SELinux access interfaces for the $HOME/Desktop directory
 
 %pre
 # RPM macro that defines the SELinux directory where the interface files are placed in

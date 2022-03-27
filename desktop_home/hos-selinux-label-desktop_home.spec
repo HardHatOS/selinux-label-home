@@ -6,7 +6,7 @@ Release: 1%{?dist}
 Requires: policycoreutils, libselinux-utils
 Source0: desktop_home.te
 Summary: SELinux policy module (label only) for the Desktop directory
-URL: https://github.com/HardHatOS/selinux-app-desktop_home
+URL: https://github.com/HardHatOS/selinux-label-home/desktop_home
 Version: 1.0
 
 %description
