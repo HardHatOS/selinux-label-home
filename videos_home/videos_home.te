@@ -1,0 +1,10 @@
+policy_module(videos_home, 1.0.0)
+########################################
+gen_require(`
+    attribute userdom_filetrans_type;
+')
+type videos_home_t;
+userdom_user_home_content(videos_home_t)
+ubac_constrained(videos_home_t)
+hos_userdom_user_home_dir_filetrans(userdom_filetrans_type, videos_home_t, dir, "Videos")
+########################################
