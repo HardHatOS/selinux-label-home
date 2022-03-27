@@ -1,0 +1,10 @@
+policy_module(downloads_home, 1.0.0)
+########################################
+gen_require(`
+    attribute userdom_filetrans_type;
+')
+type downloads_home_t;
+userdom_user_home_content(downloads_home_t)
+ubac_constrained(downloads_home_t)
+hos_userdom_user_home_dir_filetrans(userdom_filetrans_type, downloads_home_t, dir, "Downloads")
+########################################
