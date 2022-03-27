@@ -1,0 +1,13 @@
+policy_module(bash_home, 1.0.0)
+########################################
+gen_require(`
+    attribute userdom_filetrans_type;
+')
+type bash_home_t;
+userdom_user_home_content(bash_home_t)
+ubac_constrained(bash_home_t)
+hos_userdom_user_home_dir_filetrans(userdom_filetrans_type, bash_home_t, file, ".bash_history")
+hos_userdom_user_home_dir_filetrans(userdom_filetrans_type, bash_home_t, file, ".bash_logout")
+hos_userdom_user_home_dir_filetrans(userdom_filetrans_type, bash_home_t, file, ".bash_profile")
+hos_userdom_user_home_dir_filetrans(userdom_filetrans_type, bash_home_t, file, ".bashrc")
+########################################
