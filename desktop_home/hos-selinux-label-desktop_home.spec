@@ -26,12 +26,15 @@ SELinux policy module (label only) for the $HOME/Desktop directory
 # RPM macro to define the filename of the compressed SELinux policy module
 %define _pp_bz2 %{_pp}.bz2
 
+# RPM macro for relabeling the specified files/directories
+%define relabel() restorecon -R -v /home
+
 # RPM macro for SELinux preparation
 %selinux_relabel_pre -s %{selinuxtype}
 
 %build
 # Copy the SELinux .te file to the current directory
-%{__cp} %{SOURCE0} %{SOURCE1} %{SOURCE2} .
+#%{__cp} %{SOURCE0} %{SOURCE1} %{SOURCE2} .
 
 # Compile the SELinux policy module
 %{__make} %{?_smp_mflags} NAME=%{_pp} -f %{?policy_devel_root}%{_datadir}/selinux/devel/Makefile
@@ -51,11 +54,14 @@ SELinux policy module (label only) for the $HOME/Desktop directory
 if [ $1 -eq 0 ]; then
     # Uninstall the specified SELinux policy module
     %selinux_modules_uninstall -s %{selinuxtype} %{modulename}
+    # Relabel the specified file(s) and/or directories
+    %{relabel}
 fi
 
 %posttrans
-# Relabel the specified file(s) and/or directory/directories after every transaction
+# Relabel the specified file(s) and/or directories after every transaction
 %selinux_relabel_post -s %{selinuxtype}
+%{relabel}
 
 %files
 %{_datadir}/selinux/packages/%{selinuxtype}/%{_pp_bz2}
