@@ -1,16 +1,18 @@
+%global modulename MODULENAME
+
 BuildArch: noarch
-BuildRequires: hos-devel-selinux-interfaces, make, selinux-policy-devel
+BuildRequires: hos-devel-selinux-interfaces
 License: AGPLv3+
-Name: hos-devel-selinux-label-bash_home
+Name: hos-devel-selinux-label-%{modulename}
 Release: 1%{?dist}
-Requires: policycoreutils, libselinux-utils
-Source0: bash_home.if
-Summary: SELinux access interfaces for Bash files
-URL: https://github.com/HardHatOS/selinux-app-bash_home
+Requires: selinux-policy-devel
+Source0: %{modulename}.if
+Summary: SELinux access interfaces for TARGET files
+URL: https://github.com/HardHatOS/selinux-label-home/%{modulename}
 Version: 1.0
 
 %description
-SELinux access interfaces for Bash files within the $HOME directory
+SELinux access interfaces for TARGET files within the $HOME directory
 
 %pre
 # RPM macro that defines the SELinux directory where the interface files are placed in
@@ -21,4 +23,4 @@ SELinux access interfaces for Bash files within the $HOME directory
 %{__install} -D -m 0644 %{SOURCE0} -t %{buildroot}%{_contribdir}
 
 %files
-%attr(0644,root,root) %{_contribdir}/*.if
+%{_contribdir}/%{modulename}.if

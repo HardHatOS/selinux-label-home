@@ -1,12 +1,14 @@
+%global modulename videos_home
+
 BuildArch: noarch
-BuildRequires: hos-devel-selinux-interfaces, make, selinux-policy-devel
+BuildRequires: hos-devel-selinux-interfaces
 License: AGPLv3+
-Name: hos-devel-selinux-label-videos_home
+Name: hos-devel-selinux-label-%{modulename}
 Release: 1%{?dist}
-Requires: policycoreutils, libselinux-utils
-Source0: videos_home.if
+Requires: selinux-policy-devel
+Source0: %{modulename}.if
 Summary: SELinux access interfaces for the Videos directory
-URL: https://github.com/HardHatOS/selinux-label-home/videos_home
+URL: https://github.com/HardHatOS/selinux-label-home/%{modulename}
 Version: 1.0
 
 %description
@@ -21,4 +23,4 @@ SELinux access interfaces for the $HOME/Videos directory
 %{__install} -D -m 0644 %{SOURCE0} -t %{buildroot}%{_contribdir}
 
 %files
-%attr(0644,root,root) %{_contribdir}/*.if
+%{_contribdir}/%{modulename}.if

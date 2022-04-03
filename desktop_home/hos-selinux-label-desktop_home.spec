@@ -1,9 +1,8 @@
 %global modulename desktop_home
 %global selinuxtype targeted
 
-%{?selinux_requires}
 BuildArch: noarch
-BuildRequires: hos-devel-selinux-interfaces
+BuildRequires: bzip2, hos-devel-selinux-interfaces, make, selinux-policy-devel
 License: AGPLv3+
 Name: hos-selinux-label-%{modulename}
 Release: 1%{?dist}
@@ -34,7 +33,7 @@ SELinux policy module (label only) for the $HOME/Desktop directory
 
 %build
 # Copy the SELinux .te file to the current directory
-#%{__cp} %{SOURCE0} %{SOURCE1} %{SOURCE2} .
+%{__cp} %{SOURCE0} %{SOURCE1} %{SOURCE2} .
 
 # Compile the SELinux policy module
 %{__make} %{?_smp_mflags} NAME=%{_pp} -f %{?policy_devel_root}%{_datadir}/selinux/devel/Makefile
